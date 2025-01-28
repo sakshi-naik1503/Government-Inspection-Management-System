@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity Management Form</title>
+  <style>
+    /* General Styling */
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      margin: 0;
+    }
+    h1 {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+    h1 > * {
+      padding: 1rem;
+      background: linear-gradient(60deg, darkgreen, green);
+      color: #fff;
+      border-radius: 5px;
+    }
+    h1 > :first-child {
+      flex: 1 0 auto;
+    }
+    h1 > :last-child {
+      flex: 0 0 auto;
+    }
+    form {
+      width: 80%;
+      margin: 0 auto;
+    }
+    form .form-group {
+      padding: 0.5rem 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid green;
+      border-radius: 5px;
+      box-shadow: 0.25rem 0.25rem 1rem #ccc;
+    }
+    form .form-group > h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #ccc;
+      font-size: 1.25rem;
+    }
+    form .form-group > h2 > :first-child {
+      flex: 1 0 auto;
+    }
+    form .form-group > h2 > :last-child {
+      flex: 0 0 auto;
+    }
+    form .input-group {
+      margin-bottom: 1rem;
+      padding: 0 0.5rem;
+      position: relative;
+    }
+    form .input-group.inline {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    form .input {
+      display: flex;
+      align-items: center;
+      position: relative;
+      border-radius: 0.25rem;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    form .input input,
+    form .input textarea {
+      width: 100%;
+      border: none;
+      padding: 0.375rem 0.75rem;
+      background: transparent;
+      text-align: left; /* Align text to the left */
+    }
+    form textarea {
+      resize: vertical;
+      min-height: 5rem;
+      max-height: 10rem;
+    }
+    form .label {
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+    .control-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .control-group button {
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      background: none;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      box-shadow: 0.25rem 0.25rem 1rem #ccc;
+    }
+    .control-group button:hover {
+      background: linear-gradient(60deg, green, darkgreen);
+      color: #fff;
+    }
+    .submit-btn {
+      background: green;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: darkgreen;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>
+      <span>Activity Management Form</span>
+      <span>Activity : 1</span>
+    </h1>
+    <form method="POST" action="submit_activity.php">
+        <input type="hidden" name="example-TOTAL_FORMS" value="1" id="id_example-TOTAL_FORMS">
+        <input type="hidden" name="example-INITIAL_FORMS" value="0" id="id_example-INITIAL_FORMS">
+        <input type="hidden" name="example-MIN_NUM_FORMS" value="1" id="id_example-MIN_NUM_FORMS">
+        <input type="hidden" name="example-MAX_NUM_FORMS" value="10" id="id_example-MAX_NUM_FORMS">
+    
+        <!-- First Form -->
+        <div class="form-group">
+            <h2><span>Activity 1</span></h2>
+            
+            <!-- Tour ID -->
+            <div class="input-group">
+                <div class="label">
+                    <label for="id_example-0-tour_id">Tour ID</label>
+                </div>
+                <div class="input">
+                    <input type="text" name="tour_id[]" id="id_example-0-tour_id">
+                </div>
+            </div>
+    
+            <!-- Activity Name -->
+            <div class="input-group">
+                <div class="label">
+                    <label for="id_example-0-activity_name">Activity Name</label>
+                </div>
+                <div class="input">
+                    <input type="text" name="activity_name[]" id="id_example-0-activity_name">
+                </div>
+            </div>
+    
+            <!-- Date, Start Time, and End Time -->
+            <div class="input-group inline">
+                <div>
+                    <label for="id_example-0-date">Date</label>
+                    <input type="date" name="date[]" id="id_example-0-date">
+                </div>
+                <div>
+                    <label for="id_example-0-start_time">Start Time</label>
+                    <input type="time" name="start_time[]" id="id_example-0-start_time">
+                </div>
+                <div>
+                    <label for="id_example-0-end_time">End Time</label>
+                    <input type="time" name="end_time[]" id="id_example-0-end_time">
+                </div>
+            </div>
+    
+            <!-- Description -->
+            <div class="input-group">
+                <div class="label">
+                    <label for="id_example-0-description">Description (500 words max)</label>
+                </div>
+                <div class="input">
+                    <textarea name="description[]" id="id_example-0-description" maxlength="2500"></textarea>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Buttons -->
+        <div class="control-group">
+            <button type="button" onclick="addActivity()">Add Another Activity</button>
+            <button type="submit" class="submit-btn" onclick="validateForm(event)">Submit</button>
+        </div>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript function to clone the form for adding more activities
+    function addActivity() {
+      const totalFormsInput = document.querySelector('input[name$="-TOTAL_FORMS"]');
+      const maxForms = document.querySelector('input[name$="-MAX_NUM_FORMS"]').value;
+      const totalFormsCount = parseInt(totalFormsInput.value);
+
+      if (totalFormsCount < parseInt(maxForms)) {
+        const lastForm = document.querySelectorAll('.form-group')[totalFormsCount - 1];
+        const newForm = lastForm.cloneNode(true);
+
+        newForm.innerHTML = newForm.innerHTML.replace(
+          new RegExp('example-(\\d+)-', 'g'),
+          `example-${totalFormsCount}-`
+        );
+
+        newForm.querySelector("h2 > span:first-child").textContent = `Activity ${totalFormsCount + 1}`;
+        newForm.querySelectorAll("input, textarea").forEach((input) => {
+          input.value = "";
+        });
+
+        totalFormsInput.value = totalFormsCount + 1;
+        lastForm.after(newForm);
+
+        document.querySelector("h1 > span:last-child").textContent = `Activity: ${totalFormsCount + 1}`;
+      } else {
+        alert("Maximum of 10 forms reached!");
+      }
+    }
+
+    // Function to validate the form
+    function validateForm(event) {
+      const formGroups = document.querySelectorAll(".form-group");
+      let isValid = true;
+      let errorMessage = "";
+
+      formGroups.forEach((group, index) => {
+        const activityNumber = index + 1;
+        const tourId = group.querySelector("input[name='tour_id[]']").value.trim();
+        const activityName = group.querySelector("input[name='activity_name[]']").value.trim();
+        const date = group.querySelector("input[name='date[]']").value.trim();
+        const startTime = group.querySelector("input[name='start_time[]']").value.trim();
+        const endTime = group.querySelector("input[name='end_time[]']").value.trim();
+        const description = group.querySelector("textarea[name='description[]']").value.trim();
+
+        if (!tourId || !activityName || !date || !startTime || !endTime || !description) {
+          isValid = false;
+          errorMessage += `Please fill out all fields for Activity ${activityNumber}.\n`;
+        }
+      });
+
+      if (!isValid) {
+        event.preventDefault();
+        alert(errorMessage);
+      }
+    }
+  </script>
+</body>
+</html>
