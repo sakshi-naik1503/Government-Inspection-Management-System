@@ -67,15 +67,11 @@ $result = $conn->query($sql);
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin_review.php">Review Pending Expenses</a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link active" href="admin_reviewed_expenses.php">Reviewed Expenses</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -115,7 +111,7 @@ $result = $conn->query($sql);
                                     <?php } ?>
                                 </td>
                                 <td class="action-btns">
-                                    <a href="edit_expense.php?id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="edit_expenses.php?id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
                                 </td>
                             </tr>
                         <?php } ?>
