@@ -54,22 +54,128 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Expense</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f0f0 ;
+            background-size: cover;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, rgb(79, 176, 0), rgb(68, 219, 83));
+        }
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+            background-color: #ffffff;  /* Set white background for the form container */
+    padding: 30px;
+    border-radius: 10px;         /* Optional: to round the corners */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
+        }
+
+        h2 {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control, .form-select, .form-control:focus {
+            border-radius: 8px;
+            box-shadow: none;
+            border-color: #ccc;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, rgb(79, 176, 0), rgb(68, 219, 83));
+            border: none;
+            padding: 10px 20px;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .btn-secondary:hover, .btn-primary:hover {
+            opacity: 0.8;
+        }
+
+        .form-control::placeholder {
+            color: #aaa;
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .navbar {
+        background: linear-gradient(90deg, rgb(79, 176, 0), rgb(68, 219, 83));
+    }
+
+    .navbar-nav .nav-link {
+        color: white !important;
+    }
+
+    .navbar-toggler-icon {
+        background-color: white !important;
+    }
+
+        /* Responsive Form */
+        @media (max-width: 576px) {
+            .container {
+                margin-top: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                        
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Edit Expense</h2>
+        <h2 class="text-center mb-4">Edit Expense Status</h2>
 
         <!-- Display messages -->
         <?php if (isset($_SESSION['error'])): ?>

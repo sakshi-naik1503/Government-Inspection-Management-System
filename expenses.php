@@ -71,15 +71,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_expense'])) {
     <title>Expense Submission</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+      
+
         body {
             background-color: #f8f9fa;
+            /* background-image: url('https://www.shutterstock.com/image-photo/lush-rice-paddy-field-neat-260nw-2499404003.jpg'); */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 600px;
         }
         .card {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
         }
         .card-header {
-            background-color: #28a745;
+            background: linear-gradient(90deg, rgb(79, 176, 0), rgb(68, 219, 83));
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
@@ -90,13 +101,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_expense'])) {
         }
         .btn {
             font-size: 1.1rem;
-            border-radius: 30px;
-        }
-        .btn-primary {
-            background-color: #007bff;
-        }
-        .btn-success {
-            background-color: #28a745;
+           
+            background: linear-gradient(90deg, rgb(79, 176, 0), rgb(68, 219, 83));
+            border: none;
+            color: white;
         }
         .btn:hover {
             opacity: 0.9;
@@ -104,38 +112,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_expense'])) {
         .card-body {
             padding: 2rem;
         }
+
+        
     </style>
 </head>
 <body>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header text-center">
-                <h3>Compensation Master (भरपाई मास्टर)</h3>
+                <h3>Compensation Master</h3>
             </div>
             <div class="card-body">
                 <form method="POST" enctype="multipart/form-data" id="expenseForm">
                     <div class="mb-3">
-                        <label class="form-label">Tour ID (टूर आयडी)</label>
+                        <label class="form-label">Tour ID</label>
                         <input type="text" name="tour_id" class="form-control" value="<?= generateTourId(); ?>" readonly>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Transportation costs (वाहतूक खर्च)</label>
+                        <label class="form-label">Transportation costs</label>
                         <input type="number" name="transportation_cost" class="form-control" placeholder="Enter Transportation Cost" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Accommodation expenses (निवास खर्च)</label>
+                        <label class="form-label">Accommodation expenses </label>
                         <input type="number" name="accommodation_cost" class="form-control" placeholder="Enter Accommodation Cost" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Other expenses (इतर खर्च)</label>
+                        <label class="form-label">Other expenses</label>
                         <input type="number" name="other_expenses" class="form-control" placeholder="Enter Other Expenses" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Upload the receipt (पावती अपलोड करा)</label>
+                        <label class="form-label">Upload the receipt</label>
                         <input type="file" name="receipt" id="receipt" class="form-control" accept=".jpg,.jpeg,.png" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Total cost (एकूण खर्च)</label>
+                        <label class="form-label">Total cost </label>
                         <input type="text" id="total_cost" class="form-control" readonly>
                     </div>
                     <div class="d-flex justify-content-between">

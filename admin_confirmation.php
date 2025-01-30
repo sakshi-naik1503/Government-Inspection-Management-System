@@ -36,6 +36,68 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Confirmation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+         body{
+        /* background-image: url('https://www.shutterstock.com/image-photo/lush-rice-paddy-field-neat-260nw-2499404003.jpg'); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .card {
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table-dark th {
+        background: linear-gradient(90deg, rgb(79, 176, 0), rgb(68, 219, 83));
+        color: #fff;
+    }
+
+    .btn-sm {
+        padding: 6px 12px;
+    }
+
+    .action-btns a {
+        margin: 0 5px;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    /* Apply the linear gradient to navbar */
+    .navbar {
+        background: linear-gradient(90deg, rgb(79, 176, 0), rgb(68, 219, 83));
+    }
+
+    .navbar-nav .nav-link {
+        color: white !important;
+    }
+
+    .navbar-toggler-icon {
+        background-color: white !important;
+    }
+    .navbar .navbar-brand {
+            font-weight: bold;
+        }
+    </style>
     <script>
         function validateForm() {
             let status = document.getElementById("status").value;
@@ -64,9 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="admin_reviewed_expenses.php">Reviewed Expenses</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Logout</a>
                     </li>
